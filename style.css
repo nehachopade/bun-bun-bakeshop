@@ -4,7 +4,7 @@ body{
 }
 
 #imagePanel{
-	margin: 20px 0 0 0;
+	margin: 50px 0 0 0;
 	display:flex;
 	justify-content: center;
 	align-items: center;
