@@ -1,0 +1,67 @@
+.headerflexboxContainer{
+  	display:flex;
+  	align-items:center;
+}
+.navbar{
+	float:right;
+}
+
+#scaffold{
+	padding-left:10px;
+}
+
+#logo{
+	font-family: 'Nunito', sans-serif;
+  	font-weight:bold;
+  	font-size: 24px;
+	width: 564px;
+	height: 40px;
+	left: 50px;
+	top: 91px;
+	text-align: center;
+	letter-spacing: 0.2em;
+}
+.bunbun {
+	color: #CB5538;
+}
+
+.bakeshop{
+  	color: #5E5E5E;
+}
+
+.shipping {
+	font-family: 'Nunito', sans-serif;
+  	font-size: 14px;
+	width: 564px;
+	text-align: center;
+	letter-spacing: 0.2em;
+	color: #CB5538;
+}
+
+/*.radio{
+  align-items: center;
+  visibility:hidden;
+}*/
+
+#home {
+	font-weight:black;
+	/*text-decoration:underline;
+	border-bottom-width: 1px solid #000;*/
+	color: #CB5538;
+}
+
+.tab{
+	font-family: 'Nunito', sans-serif;
+	font-weight:bold;
+	text-decoration: none;
+	padding: 0 80px;
+	font-size: 14px;
+	letter-spacing: 0.2em;
+	color: #5E5E5E;
+}
+
+body{
+	margin:0;
+	background-image: url("./assets/background.png");
+}
+
