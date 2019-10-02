@@ -7,6 +7,16 @@
   justify-content: center;
 }
 
+
+#buns{
+  color: #CB5538 !important;
+}
+
+.tabs {
+  color: #2F2F2F !important;
+}
+
+
 .browseItem {
   width: 250px;
   min-width: 250px;
