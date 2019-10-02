@@ -14,18 +14,15 @@
 }
 
 .sameLine {
-	width:100%;
-	
+	width:100%;	
 }
-
-
 
 .bunName{
 	font-family: 'Nunito', sans-serif;
   	font-size: 36px;
-  	color: #CB5538;
-  	
+  	color: #CB5538; 	
 }
+
 .bunPrice{
 	font-family: 'Nunito', sans-serif;
   	font-size: 24px;
@@ -84,9 +81,6 @@ select {
   	-moz-appearance:none;*/
 }
 
-#bold{
-	font-weight: bold;
-}
 .qtySelector{
 	width: 100%;
 	height: 48px;
