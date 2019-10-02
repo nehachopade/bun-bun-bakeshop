@@ -17,6 +17,10 @@
 	width:100%;
 	
 }
+
+#buns{
+	color: #CB5538 !important;
+}
 .bunName{
 	font-family: 'Nunito', sans-serif;
   	font-size: 36px;
@@ -80,6 +84,7 @@ select {
   	-webkit-appearance:none;
   	-moz-appearance:none;*/
 }
+
 #bold{
 	font-weight: bold;
 }
