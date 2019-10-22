@@ -37,11 +37,13 @@
     left: 170px;
 }
 .buntext{
+
 	font-family: 'Nunito', sans-serif;
 	font-size: 12px;
 	letter-spacing: 0.2em;
 	display: flex;
-  	width:100%;
+  	width:50%;
+
 }
 .bunname{
 	text-align: left;
