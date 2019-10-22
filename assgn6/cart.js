@@ -13,26 +13,30 @@
 
 var selectedBun=sessionStorage.getItem("bundetailsupdates");
 selectedBun=JSON.parse(selectedBun);
-console.log(selectedBun);
+//console.log(selectedBun);
 
 var displayImage = document.getElementById("cartImage");
-displayImage.innerHTML="<img src=\"original.png\" width=\"250px\" height=\"250px\">";
+displayImage.innerHTML="<img src=\"./assets/original.png\" width=\"250px\" height=\"250px\">";
+
+document.getElementById("cartBunName").innerHTML = selectedBun.bunname;
+
 
 document.getElementById("insert-glaze").innerHTML = selectedBun.glaze
-console.log(selectedBun.glaze);
+//console.log(selectedBun.glaze);
 
 document.getElementById("insert-qty").innerHTML = selectedBun.qty;
 
 document.getElementById("insert-packs").innerHTML = selectedBun.packs;
 
 var subtotal= selectedBun.qty * selectedBun.price;
-document.getElementById("calculate-total").innerHTML = subtotal;
+document.getElementById("calculate-total").innerHTML = "$ "+subtotal+".00";
 
 var tax= subtotal * 0.075;
-document.getElementById("calculate-tax").innerHTML = tax;
+
+document.getElementById("calculate-tax").innerHTML = "$ " + tax;
 
 var grandTotal= subtotal + tax;
-document.getElementById("grand-total").innerHTML = grandTotal;
+document.getElementById("grand-total").innerHTML = "$ "+ grandTotal;
 
 
 

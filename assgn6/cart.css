@@ -37,13 +37,19 @@
 }
 
 .select{
+  font-weight: 700;
+  display:inline;
   padding: 5px 0;
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
   color: #5E5E5E;
 }
 .insert1{
-  text-align: right;
+  display:inline;
+  padding: 5px 0;
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  color: #5E5E5E;
 }
 
 .bun-name{
@@ -55,38 +61,43 @@
 
 .order-subtotal{
   float:right;
-  margin: 0 0 0 100px;
+  margin: 0 0 0 70px;
 }
 
 .summary-title{
+  font-weight: 700;
+  text-align: center;
   margin: 0 0 20px 0;
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
-  color: #CB5538; 
-  letter-spacing: 0.2em;
+  color: #CB5538;
+  letter-spacing: 0.5em;
+}
+
+.elementSpace{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .side{
-  /*display:inline;*/
+  display:inline;
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
   color: #5E5E5E;
 }
 
 .insert2{
-  margin: 10px 0;
-  /*padding: 10px 0;*/
+  float:right;
   display:inline;
-  text-align: right;
 }
 
-.city{
-  /*display:inline;*/
-  padding:0;
-  float:left;
+hr{
+    margin: 20px 0;
 }
 
 .order-total{
+  font-weight: 700;
+  display: inline;
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
   color: #5E5E5E; 
