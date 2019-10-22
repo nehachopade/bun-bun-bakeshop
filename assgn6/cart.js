@@ -46,14 +46,14 @@ document.getElementById("insert-qty").innerHTML = selectedBun.qty;
 document.getElementById("insert-packs").innerHTML = selectedBun.packs;
 
 var subtotal= selectedBun.qty * selectedBun.price;
-document.getElementById("calculate-total").innerHTML = "$ "+subtotal+".00";
+document.getElementById("calculate-total").innerHTML = "$ "+subtotal.toFixed(2);
 
 var tax= subtotal * 0.075;
 
-document.getElementById("calculate-tax").innerHTML = "$ " + tax;
+document.getElementById("calculate-tax").innerHTML = "$ " + tax.toFixed(2);
 
 var grandTotal= subtotal + tax;
-document.getElementById("grand-total").innerHTML = "$ "+ grandTotal;
+document.getElementById("grand-total").innerHTML = "$ "+ grandTotal.toFixed(2);
 
 
 

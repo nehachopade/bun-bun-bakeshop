@@ -11,38 +11,18 @@ function buns(url,description, bunname, price, qty, rating, glaze, packs, total)
 	this.total= this.price * this.qty;
 }
 
-/*var blackberrybun = new buns("./assets/display.png",`Original is our most popular bun freshly prepared every morning since 1992.
-	Ingredients: Wholewheat flour, Butter, Egg, Sugar, Baking soda
-The buns are sold in packs of 1,3,6 or 12 buns`, "Original Bun", 5,0,5,"",0,0);*/
-
-// document.getElementById("mybag").addEventListener("click", function(){
-	//var bun
-	//create a new instance
-	//store that instance into local storage
-// });
-
-//retrieval should happen later.
-
 
 document.getElementById("originalImage").addEventListener("click", function(){
 	var original = new buns("", "Original is our most popular bun freshly prepared every morning since 1992. <br> Ingredients: Wholewheat flour, Butter, Egg, Sugar, Baking soda. <br> The buns are sold in packs of 1,3,6 or 12 buns", "Original Bun", 5,0,5,"",0,0);
-	console.log(original);
+	//console.log(original);
 	sessionStorage.setItem("bundetails", JSON.stringify(original));
 	window.location.href = "./detail.html";
 });
 
-
-/*
-document.getElementById("myBtn").addEventListener("click", function(){
-  document.getElementById("demo").innerHTML = "Hello World";
+document.getElementById("blackberryImage").addEventListener("click", function(){
+	var blackberry = new buns("", "BlackBerry is a new addition to our collection and the latest favourite. <br> Ingredients: Wholewheat flour, Butter, Egg, Blackberries, Baking soda. <br> The buns are sold in packs of 1,3,6 or 12 buns", "Blackberry Bun", 4,0,4,"",0,0);
+	console.log(blackberry);
+	sessionStorage.setItem("bundetails", JSON.stringify(blackberry));
+	window.location.href = "./detail.html";
 });
-*/
-
-/*
-document.getElementById("originalimage").addEventListener("click",function(){
-	sessionStorage.getItem("bundetails", JSON.parseInt(originalbun));
-		window.location.href = "./detail.html";
-})
-*/
-
 
