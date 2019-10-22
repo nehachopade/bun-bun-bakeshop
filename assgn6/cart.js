@@ -15,13 +15,30 @@ var selectedBun=sessionStorage.getItem("bundetailsupdates");
 selectedBun=JSON.parse(selectedBun);
 //console.log(selectedBun);
 
+var originalArray=["<img src=\"assets/original.png\" width=\"250px\" height=\"250px\">", 
+"<img src=\"assets/original-sugarmilk.png\" width=\"250px\" height=\"250px\">",
+"<img src=\"assets/original-vanillamilk.png\" width=\"250px\" height=\"250px\">",
+"<img src=\"assets/original-chocolate.png\" width=\"250px\" height=\"250px\">"];
+
 var displayImage = document.getElementById("cartImage");
-displayImage.innerHTML="<img src=\"./assets/original.png\" width=\"250px\" height=\"250px\">";
+
+
+if (selectedBun.glaze == "Plain"){
+	displayImage.innerHTML=originalArray[0];
+}else if (selectedBun.glaze == "Sugar-Milk"){
+	displayImage.innerHTML=originalArray[1];
+}else if (selectedBun.glaze == "Vanilla-Milk"){
+	displayImage.innerHTML=originalArray[2];
+}else if (selectedBun.glaze == "Double-Chocolate"){
+	displayImage.innerHTML=originalArray[3];
+}
+
+//displayImage.innerHTML="<img src=\"./assets/original.png\" width=\"250px\" height=\"250px\">";
 
 document.getElementById("cartBunName").innerHTML = selectedBun.bunname;
 
 
-document.getElementById("insert-glaze").innerHTML = selectedBun.glaze
+document.getElementById("insert-glaze").innerHTML = selectedBun.glaze;
 //console.log(selectedBun.glaze);
 
 document.getElementById("insert-qty").innerHTML = selectedBun.qty;
