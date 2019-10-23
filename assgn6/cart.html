@@ -4,20 +4,39 @@
 		<title>Bun-Bun</title>
 		<link href="cart.css" rel="stylesheet" type="text/css">
 		<link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+		<link href="header.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
 		
 	</head>
 	
 	<body>
 		<header>
-			
+			<div class="headerflexboxContainer">
+				<div class="branding">
+					<img id="scaffold" src="./assets/scaffold.png" alt="Scaffold" height="80" width="500">
+					<div id="logo">
+					<span class="bunbun">BUN-BUN </span>
+					<span class="bakeshop">BAKE SHOP </span>
+				</div>
+				<div class="shipping">Free Shipping in Pittsburgh</div>
+			</div>
+
+			<div class="navbar">
+				<a id="home" class="tab" href="index.html">HOME</a>
+				<a id="buns"class="tab" href="browse.html">BUNS</a>
+				<a class="tab" href="./about.html">ABOUT</a>
+				<img id="cartlogoImage" src="./assets/blackbag.svg">
+				<div id="incartQty"></div>
+				<!--Add selected quantity -->
+			</div>
 		</header>
 		<h1 class="my-bag">My Bag</h1>
 		<div class="display-flex-container">
 
 			<div class="order-synopsis">
 				<div class="sub-flex">
-					<div class="child-1" id="cartImage">
-						<img class="bun-image" id="selectedBunImage" alt="Original bun image display" height="250" width="250">
+					<div class="child-1" id="selectedBunImage">
+						<img class="bun-image" alt="Original bun image display" height="250" width="250">
 					</div>
 					<div class="child-2">
 						<div class="bun-name" id="cartBunName"></div>
@@ -81,7 +100,7 @@
 		</div>
 
 
-	<script src="index.js"></script>
+	<!--<script src="index.js"></script>-->
 	<script src="cart.js"></script>
 	</body>
 </html>

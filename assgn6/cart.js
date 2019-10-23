@@ -1,11 +1,11 @@
 
-
-var displayImage = document.getElementById("cartImage");
-
 //retrieves instance from Session Storage
 var selectedBun=sessionStorage.getItem("bundetailsupdates");
 selectedBun=JSON.parse(selectedBun);
 
+var cartQuantity=localStorage.getItem ("inCart");
+document.getElementById("cartlogoImage").src="./assets/cartQty.svg";
+document.getElementById("incartQty").innerHTML=cartQuantity;
 
 
 //checks the type of bun selected
@@ -22,8 +22,6 @@ if (selectedBun.bunname == "Original Bun"){
 }
 
 var displayImage = document.getElementById("selectedBunImage");
-displayImage.innerHTML=bunArray[0];
-
 if (selectedBun.glaze == "Plain"){
 	displayImage.innerHTML=bunArray[0];
 }else if (selectedBun.glaze == "Sugar-Milk"){

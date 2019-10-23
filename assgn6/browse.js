@@ -12,7 +12,8 @@ function buns(url,description, bunname, price, qty, rating, glaze, packs, total)
 }
 
 document.getElementById("originalImage").addEventListener("click", function(){
-	var original = new buns("", "Original is our most popular bun freshly prepared every morning since 1992. <br> Ingredients: Wholewheat flour, Butter, Egg, Sugar, Baking soda. <br> The buns are sold in packs of 1,3,6 or 12 buns", "Original Bun", 5,0,5,"",0,0);
+	//var 
+	original = new buns("", "Original is our most popular bun freshly prepared every morning since 1992. <br> Ingredients: Wholewheat flour, Butter, Egg, Sugar, Baking soda. <br> The buns are sold in packs of 1,3,6 or 12 buns", "Original Bun", 5,0,5,"",0,0);
 	//console.log(original);
 	sessionStorage.setItem("bundetails", JSON.stringify(original));
 	window.location.href = "./detail.html";
