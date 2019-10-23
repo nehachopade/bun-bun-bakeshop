@@ -43,79 +43,133 @@ document.getElementById("glazeSelected").addEventListener("change",function(){
 });
 
 
+//Checks on qty input and disables other packs 
+var packs=document.getElementsByClassName("pack");
+	for(i=0;i<packs.length;i++){
+		if (packs[i].checked==true){
+			selectedBun.packs=packs[i].value;}
+		}
+
+document.getElementById("packs12").addEventListener("click",function(){
+
+	bunQty = document.getElementById("bunQty").value;
+	console.log(bunQty);
+
+	if (bunQty<=11 && bunQty>=1){
+	//packs of 6
+		console.log("1. I am here");
+		packs[3].disabled;
+		alert ("Pack of 12 only possible with quantities above 12!");
+	}
+});
+
+document.getElementById("packs6").addEventListener("click",function(){
+
+	bunQty = document.getElementById("bunQty").value;
+	console.log(bunQty);
+
+	if (bunQty<=5 && bunQty>=1){
+	//packs of 6
+		console.log("2. I am here");
+		packs[3].disabled;
+		packs[2].disabled;
+		alert ("Pack of 6 and 12 only possible with quantities above 6!");
+	}
+});
+
+document.getElementById("packs3").addEventListener("click",function(){
+
+	bunQty = document.getElementById("bunQty").value;
+	console.log(bunQty);
+
+	if (bunQty<=2 && bunQty>=1){
+	//packs of 6
+		console.log("3. I am here");
+		packs[3].disabled;
+		packs[2].disabled;
+		alert ("Pack of 3, 6 and 12 only possible with quantities above 3!");
+	}
+});
+	// else if (bunQty>=3){
+	// //packs of 3
+	// 	console.log("3. I am here");
+	// 	var packs=document.getElementsByClassName("pack");
+	// 	for(i=0;i<packs.length;i++){
+	// 		if (packs[i].checked==true)
+	// 			selectedBun.packs=packs[i].value;
+	// 	}
+	// 	packs[3].disabled;
+	// 	packs[2].disabled;
+	// 	alert ("Pack of 6 or 12 only possible with quantities above 6 or 12, respectively");
+	// } 
+	// else {
+	// //packs of 1
+	// 	var packs=document.getElementsByClassName("pack");
+	// 	for(i=0;i<packs.length;i++){
+	// 		if (packs[i].checked==true)
+	// 			selectedBun.packs=packs[i].value;
+	// 		}
+	// 		console.log("4. I am here");
+	// 		alert ("Pack of 6,3,12 only possible with quantities above 6,3,12");
+	// }
+
+
+//packs of 12
+
 
 //On click Add to Cart- changes the cart display and adds attributes to instance
-document.getElementById("mybagButton").addEventListener("click",function(){
+/*document.getElementById("mybagButton").addEventListener("click",function(){
 	document.getElementById("mybagButton").innerHTML =" Added to Bag! Checkout >> ";
+	
 	selectedBun.glaze=document.getElementById("glazeSelected").value;
+	
 	selectedBun.qty=document.getElementById("bunQty").value;
+	localStorage.setItem ("inCart", selectedBun.qty);
 
+	var packs=document.getElementsByClassName("pack");
+	for(i=0;i<packs.length;i++){
+		if (packs[i].checked==true){
+			selectedBun.packs=packs[i].value;}
+	}
 	
 	document.getElementById("cartlogoImage").src="./assets/cartQty.svg";
+	
 	document.getElementById("incartQty").innerHTML=selectedBun.qty;
-	localstorage.setItem ("inCart", selectedBun.qty );
+
 	sessionStorage.setItem("bundetailsupdates", JSON.stringify(selectedBun));	
-
-		if (selectedBun.qty>=12 || selectedBun.qty%12==0){
-//packs of 12
-		console.log("1. I am here");
-		var packs=document.getElementsByClassName("pack");
-			for(i=0;i<packs.length;i++){
-				if (packs[i].checked==true){
-					selectedBun.packs=packs[i].value;
-				}
-			}
-	} else if (selectedBun.qty>=6 || selectedBun.qty%6==0){
-//packs of 6
-	console.log("2. I am here");
-		var packs=document.getElementsByClassName("pack");
-			for(i=0;i<packs.length;i++){
-				if (packs[i].checked==true){
-					selectedBun.packs=packs[i].value;}
-			}
-
-		if (selectedBun.packs==12) {
-			packs[3].checked=false;
-			alert ("Pack of 12 only possible with quantities above 12");
-		}
-	} else if (selectedBun.qty>=3 || selectedBun.qty%3==0){
-//packs of 3
-		console.log("3. I am here");
-		var packs=document.getElementsByClassName("pack");
-			for(i=0;i<packs.length;i++){
-				if (packs[i].checked==true){
-					selectedBun.packs=packs[i].value;
-				}
-			}
-
-		if (selectedBun.packs==6 && selectedBun.packs==12 ) {
-			packs[3].checked=false;
-			packs[2].checked=false;
-			alert ("Pack of 6 or 12 only possible with quantities above 6 or 12, respectively");
-		}
-	} else {
-//packs of 1
-		var packs=document.getElementsByClassName("pack");
-			for(i=0;i<packs.length;i++){
-				if (packs[i].checked==true){
-					selectedBun.packs=packs[i].value;
-				}
-			}
-		console.log("4. I am here");
-	}
-
-	//Should I use Local Storage??
-
 	//local storage applies to all pages of my website
 	//session storage works in the same tab
 	
 });
+*/
+//take you to cart when clicking on cart
+/*document.getElementById("mybagButton").removeEventListener("click",function(){
+	document.getElementById("mybagButton").innerHTML =" Ready for Checkout >> ";	
+});*/
+function fnChangeDivContent(){
+	//document.getElementById("mybagButton").innerHTML =" Added to Bag! Checkout >> ";
+	
+	selectedBun.glaze=document.getElementById("glazeSelected").value;
+	
+	selectedBun.qty=document.getElementById("bunQty").value;
+	localStorage.setItem ("inCart", selectedBun.qty);
 
-//take you to cart when clicking on cart
-document.getElementById("mybagButton").addEventListener("dblclick",function(){
+	var packs=document.getElementsByClassName("pack");
+	for(i=0;i<packs.length;i++){
+		if (packs[i].checked==true){
+			selectedBun.packs=packs[i].value;}
+	}
+	
+	document.getElementById("cartlogoImage").src="./assets/cartQty.svg";
+	
+	document.getElementById("incartQty").innerHTML=selectedBun.qty;
+
+	sessionStorage.setItem("bundetailsupdates", JSON.stringify(selectedBun));	
+	//local storage applies to all pages of my website
+	//session storage works in the same tab
+   document.getElementById("button1").innerHTML = document.getElementById("button2").innerHTML;
+}
+
+document.getElementById("button1").addEventListener("dblclick",function(){
 	window.location.href = "./cart.html";	
-});
-//take you to cart when clicking on cart
-document.getElementById("cartlogoImage").addEventListener("click",function(){
-	window.location.href = "./cart.html";
 });

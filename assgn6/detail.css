@@ -8,6 +8,8 @@
 
 }
 
+#button2 { display:none; }
+
 .displayBox{
 	display:flex;
 	flex-direction: row;

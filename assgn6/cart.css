@@ -1,3 +1,13 @@
+#incartQty{
+  float:right;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  padding: 5px 25px 0 0;
+  font-size: 14px;
+  color: #CB5538; 
+
+}
+
 .my-bag{
   margin: 50px 0 20px 200px;
   font-family: 'Nunito', sans-serif;

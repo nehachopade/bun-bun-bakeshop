@@ -3,8 +3,8 @@
 var selectedBun=sessionStorage.getItem("bundetailsupdates");
 selectedBun=JSON.parse(selectedBun);
 
-var cartQuantity=localStorage.getItem ("inCart");
 document.getElementById("cartlogoImage").src="./assets/cartQty.svg";
+var cartQuantity=localStorage.getItem ("inCart");
 document.getElementById("incartQty").innerHTML=cartQuantity;
 
 
