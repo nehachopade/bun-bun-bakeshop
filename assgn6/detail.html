@@ -39,10 +39,10 @@
 				<div class="sameLine">
 					<div class="bunName" id="selectedBunName"></div>
 					<div class="bunPrice" id="selectedBunPrice"></div>
-					<div class="bunStar" id="selectedBunStar"><img src="./assets/detail-stars.png"></div>
+					<div class="bunStar"><img id="selectedBunStar"></div>
 			</div>
 
-			<div class="bunText" id="selectedBunText"><p>Original is our most popular bun freshly prepared every morning since 1992.<br><strong id="bold">Ingredients:</strong> Wholewheat flour, Butter, Egg, Sugar, Baking soda<br>The buns are sold in packs of 1,3,6 or 12 buns</p></div>
+			<div class="bunText" id="selectedBunText"><p>Original is our most  popular bun freshly prepared every morning since 1992.<br><span id="ingredientBold">Ingredients:</span> Wholewheat flour, Butter, Egg, Sugar, Baking soda<br>The buns are sold in packs of 1,3,6 or 12 buns</p></div>
 
 			<div class="bunOptions">
 				<div class="glazeSelector" >
@@ -60,12 +60,12 @@
 					<input class="qtyarrow" type="number" id="bunQty" name="bunQuantity" min="0" max="50"/>
 				</div>
 
-				
+				<div class="bunText">Choose your preferred packaging option for selected buns :</div>
 				<div class="packRadio" id="packsPicked">
-					<input class="pack" type="radio" value="1" id="packs1" name="packs" checked="checked"/><label for="packs1">Packs of 1</label>
-					<input class="pack" type="radio" value="3"id="packs3" name="packs" /><label for="packs3">Packs of 3</label>
-					<input class="pack" type="radio" value="6"id="packs6" name="packs" /><label for="packs6">Packs of 6</label>
-					<input class="pack" type="radio" value="12"id="packs12" name="packs" /><label for="packs12">Packs of 12</label>
+					<input class="pack" type="radio" value="1" id="packs1" name="packs" checked="checked"/><label for="packs1" id="packs1label" >Packs of 1</label>
+					<input class="pack" type="radio" value="3"id="packs3" name="packs" id="packs3label" /><label for="packs3">Packs of 3</label>
+					<input class="pack" type="radio" value="6" id="packs6" name="packs" /><label for="packs6" id="packs6label">Packs of 6</label>
+					<input class="pack" type="radio" value="12"id="packs12 " name="packs" /><label for="packs12" id="packs12label">Packs of 12</label>
 				</div>
 
 

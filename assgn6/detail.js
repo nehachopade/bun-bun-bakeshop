@@ -2,7 +2,7 @@
 //retrieves selected object
 var selectedBun=sessionStorage.getItem("bundetails");
 selectedBun=JSON.parse(selectedBun);
-
+console.log(selectedBun);
 
 //displays selected bun's name, price and description
 document.getElementById("selectedBunName").innerHTML = selectedBun.bunname;
@@ -22,6 +22,11 @@ if (selectedBun.bunname == "Original Bun"){
 "<img src=\"assets/original-sugarmilk.png\" width=\"500px\" height=\"500px\">",
 "<img src=\"assets/original-vanillamilk.png\" width=\"500px\" height=\"500px\">",
 "<img src=\"assets/original-chocolate.png\" width=\"500px\" height=\"500px\">"]; 
+}  else if (selectedBun.bunname == "Walnut Bun"){
+ 	var bunArray=["<img src=\"assets/browse-3.png\" width=\"500px\" height=\"500px\">", 
+"<img src=\"assets/original-sugarmilk.png\" width=\"500px\" height=\"500px\">",
+"<img src=\"assets/original-vanillamilk.png\" width=\"500px\" height=\"500px\">",
+"<img src=\"assets/original-chocolate.png\" width=\"500px\" height=\"500px\">"];
 }
 
 //changes the displayed bun based on selection
@@ -42,118 +47,49 @@ document.getElementById("glazeSelected").addEventListener("change",function(){
 	}
 });
 
-
-//Checks on qty input and disables other packs 
-var packs=document.getElementsByClassName("pack");
-	for(i=0;i<packs.length;i++){
-		if (packs[i].checked==true){
-			selectedBun.packs=packs[i].value;}
-		}
-
-document.getElementById("packs12").addEventListener("click",function(){
-
-	bunQty = document.getElementById("bunQty").value;
-	console.log(bunQty);
-
-	if (bunQty<=11 && bunQty>=1){
-	//packs of 6
-		console.log("1. I am here");
-		packs[3].disabled;
-		alert ("Pack of 12 only possible with quantities above 12!");
+document.getElementById("bunQty").addEventListener('keyup', function(event){
+	var bunQty = event.target.value;
+	// var packs=document.getElementsByClassName("pack");
+	//document.getElementById("packs6").removeAttribute('disabled');
+	document.getElementById("packs6label").classList.remove('disabledElement');
+	if (bunQty<1 || bunQty>50){
+		alert("Please enter a valid quantity");
+		document.getElementById("packs1label").classList.add('disabledElement');
+		document.getElementById("packs3label").classList.add('disabledElement');
+		document.getElementById("packs6label").classList.add('disabledElement');
+		document.getElementById("packs12label").classList.add('disabledElement');
 	}
+	else if(bunQty==1){
+		document.getElementById("packs3label").classList.add('disabledElement');
+		document.getElementById("packs6label").classList.add('disabledElement');
+		document.getElementById("packs12label").classList.add('disabledElement');
+	}
+	else if(bunQty<=3){
+		document.getElementById("packs6label").classList.add('disabledElement');
+		document.getElementById("packs12label").classList.add('disabledElement');
+	}
+	else if(bunQty<=6){
+		//document.getElementById("packs12").setAttribute('disabled', true);
+		document.getElementById("packs12label").classList.add('disabledElement');
+	}
+
 });
 
-document.getElementById("packs6").addEventListener("click",function(){
+if (selectedBun.rating==5){
+	document.getElementById("selectedBunStar").src="./assets/detail-stars.png";
 
-	bunQty = document.getElementById("bunQty").value;
-	console.log(bunQty);
+} else if (selectedBun.rating=4){
+	document.getElementById("selectedBunStar").src="./assets/detail-stars2.png";
 
-	if (bunQty<=5 && bunQty>=1){
-	//packs of 6
-		console.log("2. I am here");
-		packs[3].disabled;
-		packs[2].disabled;
-		alert ("Pack of 6 and 12 only possible with quantities above 6!");
-	}
-});
-
-document.getElementById("packs3").addEventListener("click",function(){
-
-	bunQty = document.getElementById("bunQty").value;
-	console.log(bunQty);
-
-	if (bunQty<=2 && bunQty>=1){
-	//packs of 6
-		console.log("3. I am here");
-		packs[3].disabled;
-		packs[2].disabled;
-		alert ("Pack of 3, 6 and 12 only possible with quantities above 3!");
-	}
-});
-	// else if (bunQty>=3){
-	// //packs of 3
-	// 	console.log("3. I am here");
-	// 	var packs=document.getElementsByClassName("pack");
-	// 	for(i=0;i<packs.length;i++){
-	// 		if (packs[i].checked==true)
-	// 			selectedBun.packs=packs[i].value;
-	// 	}
-	// 	packs[3].disabled;
-	// 	packs[2].disabled;
-	// 	alert ("Pack of 6 or 12 only possible with quantities above 6 or 12, respectively");
-	// } 
-	// else {
-	// //packs of 1
-	// 	var packs=document.getElementsByClassName("pack");
-	// 	for(i=0;i<packs.length;i++){
-	// 		if (packs[i].checked==true)
-	// 			selectedBun.packs=packs[i].value;
-	// 		}
-	// 		console.log("4. I am here");
-	// 		alert ("Pack of 6,3,12 only possible with quantities above 6,3,12");
-	// }
+}
 
 
-//packs of 12
-
-
-//On click Add to Cart- changes the cart display and adds attributes to instance
-/*document.getElementById("mybagButton").addEventListener("click",function(){
-	document.getElementById("mybagButton").innerHTML =" Added to Bag! Checkout >> ";
-	
-	selectedBun.glaze=document.getElementById("glazeSelected").value;
-	
-	selectedBun.qty=document.getElementById("bunQty").value;
-	localStorage.setItem ("inCart", selectedBun.qty);
-
-	var packs=document.getElementsByClassName("pack");
-	for(i=0;i<packs.length;i++){
-		if (packs[i].checked==true){
-			selectedBun.packs=packs[i].value;}
-	}
-	
-	document.getElementById("cartlogoImage").src="./assets/cartQty.svg";
-	
-	document.getElementById("incartQty").innerHTML=selectedBun.qty;
-
-	sessionStorage.setItem("bundetailsupdates", JSON.stringify(selectedBun));	
-	//local storage applies to all pages of my website
-	//session storage works in the same tab
-	
-});
-*/
 //take you to cart when clicking on cart
-/*document.getElementById("mybagButton").removeEventListener("click",function(){
-	document.getElementById("mybagButton").innerHTML =" Ready for Checkout >> ";	
-});*/
 function fnChangeDivContent(){
-	//document.getElementById("mybagButton").innerHTML =" Added to Bag! Checkout >> ";
 	
 	selectedBun.glaze=document.getElementById("glazeSelected").value;
-	
 	selectedBun.qty=document.getElementById("bunQty").value;
 	localStorage.setItem ("inCart", selectedBun.qty);
-
 	var packs=document.getElementsByClassName("pack");
 	for(i=0;i<packs.length;i++){
 		if (packs[i].checked==true){
@@ -161,10 +97,8 @@ function fnChangeDivContent(){
 	}
 	
 	document.getElementById("cartlogoImage").src="./assets/cartQty.svg";
-	
 	document.getElementById("incartQty").innerHTML=selectedBun.qty;
-
-	sessionStorage.setItem("bundetailsupdates", JSON.stringify(selectedBun));	
+	sessionStorage.setItem("bundetails", JSON.stringify(selectedBun));	
 	//local storage applies to all pages of my website
 	//session storage works in the same tab
    document.getElementById("button1").innerHTML = document.getElementById("button2").innerHTML;

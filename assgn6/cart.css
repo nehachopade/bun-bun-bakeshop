@@ -38,7 +38,7 @@
 
 .child-1{
   float:left;
-  width:100%;
+  width:80%;
 }
 
 .child-2{
@@ -53,6 +53,7 @@
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
   color: #5E5E5E;
+  letter-spacing: 0.2em;
 }
 .insert1{
   display:inline;
@@ -60,13 +61,25 @@
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
   color: #5E5E5E;
+  letter-spacing: 0.2em;
 }
 
 .bun-name{
+  display:inline-block;
+  
   margin:0 0 20px 0;
   font-family: 'Nunito', sans-serif;
   font-size: 36px;
   color: #CB5538;   
+}
+
+.deleteBun{
+  display:inline-block;
+  float:right;
+}
+
+.samelineTitle{
+  display:block;
 }
 
 .order-subtotal{
@@ -93,11 +106,17 @@
   display:inline;
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
+  color: #5E5E5E;
+  letter-spacing: 0.2em;
 }
 
 .insert2{
   float:right;
   display:inline;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: #5E5E5E;
+  letter-spacing: 0.2em;
 }
 
 hr{

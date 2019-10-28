@@ -6,3 +6,6 @@ fetch("./header.html")
     document.querySelector("header").innerHTML = data;
   });
 
+document.getElementById("imagePanel").addEventListener("click",()=>{
+	window.location.href="./browse.html";
+});

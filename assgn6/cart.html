@@ -36,22 +36,32 @@
 			<div class="order-synopsis">
 				<div class="sub-flex">
 					<div class="child-1" id="selectedBunImage">
-						<img class="bun-image" alt="Original bun image display" height="250" width="250">
+						<img id="bunimageselected"class="bun-image" alt="Original bun image display" height="250" width="250">
 					</div>
 					<div class="child-2">
-						<div class="bun-name" id="cartBunName"></div>
+						<div class="samelineTitle">
+							<div class="bun-name" id="cartBunName"></div>
+							<img id="removeBun"class="deleteBun" alt="Cross to cancel selected bun" src="./assets/deleteitem.svg">
+						</div>
+
 						<div class="elementSpace">
-							<div class="select" >Glaze:</div>
+							<div class="select" >Glaze: </div>
 							<div class= "insert1" id="insert-glaze"></div>
 							<!-- Glaze innerHTML-->
 						</div>
+
 						<div class="elementSpace">
-							<div class="select">Quantity:</div>
+							<div class="select" >Price: </div>
+							<div class= "insert1" id="insert-price"></div>
+							<!-- Glaze innerHTML-->
+						</div>
+						<div class="elementSpace">
+							<div class="select">Quantity: </div>
 							<div class= "insert1" id="insert-qty"></div>
 							<!-- Quantity innerHTML-->
 						</div>
 						<div class="elementSpace">
-							<div class="select">Packs:</div>
+							<div class="select">Packs: </div>
 							<div class= "insert1" id="insert-packs"></div>
 							<!-- Packs innerHTML-->
 						</div>
@@ -77,7 +87,7 @@
 				</div>
 				
 				<div class="elementSpace">
-					<div class="side shipping">SHIPPING :</div>
+					<div class="side shippinginfo">SHIPPING :</div>
 					<div class="side insert2" id="shipping-city">Free</div>
 				</div>
 

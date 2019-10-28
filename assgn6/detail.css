@@ -50,8 +50,12 @@
 	width:100%;
 	font-family: 'Nunito', sans-serif;
   font-size: 12px;
-  margin : 20px 0;
+  margin : 12px 0 0 0;
   line-height: 26pt;
+}
+
+#ingredientBold{
+  font-weight: 700;
 }
 
 input{
@@ -147,6 +151,10 @@ select {
 }
 .packRadio label:hover {
      background:#C39185;
+}
+
+.disabledElement {
+  cursor: not-allowed !important;
 }
 
 /* Styled Add to Cart Button */
