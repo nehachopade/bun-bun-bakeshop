@@ -93,9 +93,6 @@ document.getElementById("removeBun").addEventListener("click",()=>{
 	selectedBun.packs = 0;
 	selectedBun.total= 0;
 
-	console.log(selectedBun);
-
-	sessionStorage.setItem("bundetailsfinalupdates",JSON.stringify(selectedBun));
 		
 	document.getElementById("selectedBunImage").innerHTML = "";
 
@@ -113,11 +110,20 @@ document.getElementById("removeBun").addEventListener("click",()=>{
 	document.getElementById("calculate-total").innerHTML = "$ "+subtotal.toFixed(2);
 
 	var tax= subtotal * 0.075;
-
 	document.getElementById("calculate-tax").innerHTML = "$ " + tax.toFixed(2);
 
 	var grandTotal= subtotal + tax;
 	document.getElementById("grand-total").innerHTML = "$ "+ grandTotal.toFixed(2);
+
+	//sessionStorage.clear();
+	//sessionStorage.setItem("bundetails");
+
+	console.log(selectedBun);
+
+	var x = sessionStorage.setItem("bundetails",JSON.stringify(selectedBun));
+
+	console.log("I am Neha", x);
+	
 
 
 	
