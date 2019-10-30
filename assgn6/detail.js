@@ -49,44 +49,76 @@ document.getElementById("glazeSelected").addEventListener("change",function(){
 
 document.getElementById("bunQty").addEventListener('keyup', function(event){
 	var bunQty = event.target.value;
-	// var packs=document.getElementsByClassName("pack");
-	//document.getElementById("packs6").removeAttribute('disabled');
+	document.getElementById("packs1label").classList.remove('disabledElement');
+	document.getElementById("packs3label").classList.remove('disabledElement');
 	document.getElementById("packs6label").classList.remove('disabledElement');
-	if (bunQty<1 || bunQty>50){
+	document.getElementById("packs12label").classList.remove('disabledElement');
+	if (bunQty<1){ //value of zero
 		alert("Please enter a valid quantity");
 		document.getElementById("packs1label").classList.add('disabledElement');
 		document.getElementById("packs3label").classList.add('disabledElement');
 		document.getElementById("packs6label").classList.add('disabledElement');
 		document.getElementById("packs12label").classList.add('disabledElement');
+		console.log("1."+ bunQty);
 	}
-	else if(bunQty==1){
+	else if(bunQty<3){ //less than 3 (1 and 2)
+		document.getElementById("packs1label").classList.remove('disabledElement');
+		document.getElementById("packs3label").classList.remove('disabledElement');
+		document.getElementById("packs6label").classList.remove('disabledElement');
+		document.getElementById("packs12label").classList.remove('disabledElement');
 		document.getElementById("packs3label").classList.add('disabledElement');
 		document.getElementById("packs6label").classList.add('disabledElement');
 		document.getElementById("packs12label").classList.add('disabledElement');
+		console.log("2."+ bunQty);
 	}
-	else if(bunQty<=3){
+	else if(bunQty<6){//value of 3 4 5
+		document.getElementById("packs1label").classList.remove('disabledElement');
+		document.getElementById("packs3label").classList.remove('disabledElement');
+		document.getElementById("packs6label").classList.remove('disabledElement');
+		document.getElementById("packs12label").classList.remove('disabledElement');
 		document.getElementById("packs6label").classList.add('disabledElement');
 		document.getElementById("packs12label").classList.add('disabledElement');
+		console.log("3."+ bunQty);
 	}
-	else if(bunQty<=6){
-		//document.getElementById("packs12").setAttribute('disabled', true);
+	else if(bunQty<12){//value of 6 7 8 9 10 11
+		document.getElementById("packs1label").classList.remove('disabledElement');
+		document.getElementById("packs3label").classList.remove('disabledElement');
+		document.getElementById("packs6label").classList.remove('disabledElement');
+		document.getElementById("packs12label").classList.remove('disabledElement');
 		document.getElementById("packs12label").classList.add('disabledElement');
+		console.log("4."+ bunQty);
+	}
+	else if(bunQty<51){//value of 12 - 49
+		document.getElementById("packs1label").classList.remove('disabledElement');
+		document.getElementById("packs3label").classList.remove('disabledElement');
+		document.getElementById("packs6label").classList.remove('disabledElement');
+		document.getElementById("packs12label").classList.remove('disabledElement');
+		console.log("4."+ bunQty);
+
+	} else if(bunQty>50){
+		alert("Please enter a valid quantity");
+		document.getElementById("packs1label").classList.remove('disabledElement');
+		document.getElementById("packs3label").classList.remove('disabledElement');
+		document.getElementById("packs6label").classList.remove('disabledElement');
+		document.getElementById("packs12label").classList.remove('disabledElement');
+		document.getElementById("packs1label").classList.add('disabledElement');
+		document.getElementById("packs3label").classList.add('disabledElement');
+		document.getElementById("packs6label").classList.add('disabledElement');
+		document.getElementById("packs12label").classList.add('disabledElement');
+		console.log("5."+ bunQty);
 	}
 
 });
 
+//displays correct ratings assigned for the bun based on the selected Bun
 if (selectedBun.rating==5){
 	document.getElementById("selectedBunStar").src="./assets/detail-stars.png";
-
-} else if (selectedBun.rating=4){
+} else if (selectedBun.rating==4){
 	document.getElementById("selectedBunStar").src="./assets/detail-stars2.png";
-
 }
 
-
 //take you to cart when clicking on cart
-function fnChangeDivContent(){
-	
+function addtocart(){
 	selectedBun.glaze=document.getElementById("glazeSelected").value;
 	selectedBun.qty=document.getElementById("bunQty").value;
 	localStorage.setItem ("inCart", selectedBun.qty);
@@ -95,15 +127,22 @@ function fnChangeDivContent(){
 		if (packs[i].checked==true){
 			selectedBun.packs=packs[i].value;}
 	}
-	
 	document.getElementById("cartlogoImage").src="./assets/cartQty.svg";
 	document.getElementById("incartQty").innerHTML=selectedBun.qty;
 	sessionStorage.setItem("bundetails", JSON.stringify(selectedBun));	
 	//local storage applies to all pages of my website
 	//session storage works in the same tab
-   document.getElementById("button1").innerHTML = document.getElementById("button2").innerHTML;
+	//var x = document.getElementById("button2").innerHTML;
+   
+
+
+document.getElementById("mybagButton").innerHTML="Ready for Checkout";
+document.getElementById("mybagButton").onclick= () => {
+	window.location.href = "./cart.html";	
+}
+  
 }
 
-document.getElementById("button1").addEventListener("dblclick",function(){
-	window.location.href = "./cart.html";	
-});
+
+
+

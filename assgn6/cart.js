@@ -1,20 +1,15 @@
 
-/*function buns(url,description, bunname, price, qty, rating, glaze, packs, total){
-	this.image=url;
-	this.description=description;
-	this.bunname = bunname;
-	this.price = price;
-	this.qty = qty;
-	this.rating = rating;
-	this.glaze = glaze;
-	this.packs = packs;
-	this.total= this.price * this.qty;
-}*/
-
 //retrieves instance from Session Storage
 var selectedBun=sessionStorage.getItem("bundetails");
 selectedBun=JSON.parse(selectedBun);
 console.log(selectedBun.bunname);
+
+//creates an array to store multiple items in the cart
+var cart=[];
+
+for (i=0;i<cart.length; cart++){
+
+}
 
 document.getElementById("cartlogoImage").src="./assets/cartQty.svg";
 var cartQuantity=localStorage.getItem ("inCart");
