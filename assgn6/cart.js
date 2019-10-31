@@ -11,6 +11,8 @@ console.log(totalCart);
 //creates div for elemen{t element in the cart
 var bunContent = "";
 var subtotal=0;
+var tax=0;
+var grandTotal=0;
 var src="";
 
 for (i=0;i<totalCart.length; i++) {
@@ -60,7 +62,7 @@ for (i=0;i<totalCart.length; i++) {
 				'</div>'+
 				'<div class="elementSpace">'+
 					'<div class="select" >Price: </div>'+
-						'<div class= "insert1" id="insert-price">'+ totalCart[i].price+'</div>'+ 
+						'<div class= "insert1" id="insert-price">$'+ totalCart[i].price.toFixed(2)+'</div>'+ 
 				'</div>'+
 				'<div class="elementSpace">'+
 					'<div class="select">Quantity: </div>'+
@@ -76,13 +78,15 @@ for (i=0;i<totalCart.length; i++) {
 	'</div><hr><br>';
 	
 	subtotal += (totalCart[i].qty * totalCart[i].price) ;
+	var tax= subtotal * 0.075;
+	var grandTotal= subtotal + tax;
+	
 
 }
 document.getElementById("bunCartDisplay").innerHTML = bunContent;
 document.getElementById("calculate-total").innerHTML = "$ "+subtotal.toFixed(2);
-var tax= subtotal * 0.075;
+//var tax= subtotal * 0.075;
 document.getElementById("calculate-tax").innerHTML = "$ " + tax.toFixed(2);
-var grandTotal= subtotal + tax;
 document.getElementById("grand-total").innerHTML = "$ "+ grandTotal.toFixed(2);
 
 
@@ -111,12 +115,22 @@ for (i=0;i<totalCart.length; i++){
 		localStorage.setItem ("inCart", cartQuantity);
 		document.getElementById("incartQty").innerHTML=cartQuantity;	
 
-		if (totalCart.length>=0)
-			subtotal = subtotal - (totalCart[id].qty * totalCart[id].price) ;
+		if (totalCart.length>=0){
+			subtotal = subtotal - (totalCart[id].qty * totalCart[id].price)
+			tax -= (subtotal * 0.075);
+			grandTotal = grandTotal - (subtotal + tax) ;
+		}
+		else{
+			subtotal=0;
+			tax=0;
+			grandTotal=0;
+		}
+		
 
 		document.getElementById("calculate-total").innerHTML = "$ "+subtotal.toFixed(2);
-		tax -= (subtotal * 0.075);
-		grandTotal -= (subtotal + tax);
+	
+		document.getElementById("calculate-tax").innerHTML = "$ "+tax.toFixed(2);
+		
 		document.getElementById("grand-total").innerHTML = "$ "+ grandTotal.toFixed(2);
 
 		

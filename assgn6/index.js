@@ -9,3 +9,6 @@ fetch("./header.html")
 document.getElementById("imagePanel").addEventListener("click",()=>{
 	window.location.href="./browse.html";
 });
+
+sessionStorage.clear();
+localStorage.clear();
