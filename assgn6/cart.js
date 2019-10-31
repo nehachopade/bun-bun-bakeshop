@@ -141,17 +141,8 @@ for (i=0;i<totalCart.length; i++){
 		//console.log(totalCart);
 
 		totalCart.splice(id, 1);
+		document.location.reload();
 
-		localStorage.setItem ("totalcart", JSON.stringify(totalCart));
-
-		//string to number
-
-		// if (i > -1)
-		// 	totalCart.splice(id, 1);
-
-		// console.log("1"+totalCart);
-
-		
 		localStorage.setItem ("totalcart", JSON.stringify(totalCart));
 
 		
