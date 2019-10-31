@@ -78,8 +78,8 @@ for (i=0;i<totalCart.length; i++) {
 	'</div><hr><br>';
 	
 	subtotal += (totalCart[i].qty * totalCart[i].price) ;
-	var tax= subtotal * 0.075;
-	var grandTotal= subtotal + tax;
+	tax += subtotal * 0.075;
+	grandTotal += subtotal + tax;
 	
 
 }
@@ -98,12 +98,12 @@ for (i=0;i<totalCart.length; i++){
 		// Removes the element from the visual display
 		var id = ele.srcElement.id.split('-')[1];
 		var elem = document.getElementById("outBox-"+ id);
-		console.log('elem', elem);
+		//console.log('elem', elem);
 		document.getElementById("outBox-"+ ele.srcElement.id.split('-')[1]).remove();
 
 		var totalCart = JSON.parse(localStorage.getItem("totalcart"));
 
-		console.log(totalCart[id].qty);
+		//console.log(totalCart[id].qty);
 		var cartQuantity=localStorage.getItem ("inCart");
 
 
@@ -117,21 +117,25 @@ for (i=0;i<totalCart.length; i++){
 
 		if (totalCart.length>=0){
 			subtotal = subtotal - (totalCart[id].qty * totalCart[id].price)
-			tax -= (subtotal * 0.075);
-			grandTotal = grandTotal - (subtotal + tax) ;
+			console.log(tax);
+			tax = tax - subtotal * 0.075;
+			console.log(tax);
+			grandTotal = grandTotal - subtotal - tax ;
+			document.getElementById("calculate-total").innerHTML = "$ "+subtotal.toFixed(2);
+			document.getElementById("calculate-tax").innerHTML = "$ "+tax.toFixed(2);
+			document.getElementById("grand-total").innerHTML = "$ "+ grandTotal.toFixed(2);
 		}
 		else{
 			subtotal=0;
 			tax=0;
 			grandTotal=0;
+			document.getElementById("calculate-total").innerHTML = "$ "+subtotal.toFixed(2);
+			document.getElementById("calculate-tax").innerHTML = "$ "+tax.toFixed(2);
+			document.getElementById("grand-total").innerHTML = "$ "+ grandTotal.toFixed(2);
 		}
 		
 
-		document.getElementById("calculate-total").innerHTML = "$ "+subtotal.toFixed(2);
-	
-		document.getElementById("calculate-tax").innerHTML = "$ "+tax.toFixed(2);
 		
-		document.getElementById("grand-total").innerHTML = "$ "+ grandTotal.toFixed(2);
 
 		
 		//console.log(totalCart);

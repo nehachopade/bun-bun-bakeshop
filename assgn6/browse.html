@@ -8,7 +8,24 @@
 	</head>
 	<body>
 		<header>
-			
+			<div class="headerflexboxContainer">
+				<div class="branding">
+					<img id="scaffold" src="./assets/scaffold.png" alt="Scaffold" height="80" width="500">
+					<div id="logo">
+					<span class="bunbun">BUN-BUN </span>
+					<span class="bakeshop">BAKE SHOP </span>
+				</div>
+				<div class="shipping">Free Shipping in Pittsburgh</div>
+			</div>
+
+			<div class="navbar">
+				<a id="home" class="tab" href="index.html">HOME</a>
+				<a id="buns"class="tab" href="browse.html">BUNS</a>
+				<a class="tab" href="./about.html">ABOUT</a>
+				<img id="cartlogoImage" src="./assets/blackbag.svg">
+				<div id="incartQty"></div>
+				<!--Add selected quantity -->
+			</div>
 		</header>
   
 		<div class="browseList">
@@ -134,7 +151,6 @@
 			<!---->
 
 		</div>
-		<script src="index.js"></script>
 		<script src="browse.js"></script>
 	</body>
 </html>

@@ -11,3 +11,5 @@ document.getElementById("imagePanel").addEventListener("click",()=>{
 });
 
 
+localStorage.clear();
+sessionStorage.clear();
