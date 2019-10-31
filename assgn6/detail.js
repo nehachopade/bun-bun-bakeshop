@@ -1,5 +1,13 @@
 
 //retrieves selected object
+var cartqty=0;
+if(localStorage.getItem ("inCart")){
+	cartqty=parseInt(localStorage.getItem ("inCart"));
+}
+
+console.log(cartqty);
+// sessionStorage.clear();
+
 var selectedBun=sessionStorage.getItem("bundetails");
 selectedBun=JSON.parse(selectedBun);
 console.log(selectedBun);
@@ -109,7 +117,6 @@ document.getElementById("bunQty").addEventListener('keyup', function(event){
 	}
 
 });
-
 //displays correct ratings assigned for the bun based on the selected Bun
 if (selectedBun.rating==5){
 	document.getElementById("selectedBunStar").src="./assets/detail-stars.png";
@@ -117,30 +124,43 @@ if (selectedBun.rating==5){
 	document.getElementById("selectedBunStar").src="./assets/detail-stars2.png";
 }
 
+var cart=[];
+var x = localStorage.getItem ("totalcart");
+if(x)
+	cart=JSON.parse(x);
+
 //take you to cart when clicking on cart
 function addtocart(){
 	selectedBun.glaze=document.getElementById("glazeSelected").value;
 	selectedBun.qty=document.getElementById("bunQty").value;
-	localStorage.setItem ("inCart", selectedBun.qty);
 	var packs=document.getElementsByClassName("pack");
 	for(i=0;i<packs.length;i++){
 		if (packs[i].checked==true){
 			selectedBun.packs=packs[i].value;}
 	}
+	cartqty = cartqty + parseInt(selectedBun.qty);
+	console.log(cartqty);
+	//cart button quantity detail
+	localStorage.setItem ("inCart", cartqty );
 	document.getElementById("cartlogoImage").src="./assets/cartQty.svg";
-	document.getElementById("incartQty").innerHTML=selectedBun.qty;
-	sessionStorage.setItem("bundetails", JSON.stringify(selectedBun));	
-	//local storage applies to all pages of my website
-	//session storage works in the same tab
-	//var x = document.getElementById("button2").innerHTML;
-   
+	document.getElementById("incartQty").innerHTML=cartqty;
 
+	//sessionStorage.setItem("bundetails", JSON.stringify(selectedBun));
 
-document.getElementById("mybagButton").innerHTML="Ready for Checkout";
-document.getElementById("mybagButton").onclick= () => {
+	
+	//add it to the cart
+	cart.push(selectedBun);
+	console.log(cart);
+	
+
+	
+	//changes the text of the button from bag to checkout
+	document.getElementById("mybagButton").innerHTML="Ready for Checkout";
+	//on click move to the cart page
+	document.getElementById("mybagButton").onclick= () => {
 	window.location.href = "./cart.html";	
 }
-  
+localStorage.setItem ("totalcart", JSON.stringify(cart));  
 }
 
 

@@ -1,125 +1,142 @@
 
-//retrieves instance from Session Storage
-var selectedBun=sessionStorage.getItem("bundetails");
-selectedBun=JSON.parse(selectedBun);
-console.log(selectedBun.bunname);
-
-//creates an array to store multiple items in the cart
-var cart=[];
-
-for (i=0;i<cart.length; cart++){
-
-}
-
 document.getElementById("cartlogoImage").src="./assets/cartQty.svg";
 var cartQuantity=localStorage.getItem ("inCart");
 document.getElementById("incartQty").innerHTML=cartQuantity;
 
+//creates an array to store multiple items in the cart
 
-//checks the type of bun selected
-if (selectedBun.bunname == "Original Bun"){
-	var bunArray=["<img src=\"assets/original.png\" width=\"250px\" height=\"250px\">", 
-"<img src=\"assets/original-sugarmilk.png\" width=\"250px\" height=\"250px\">",
-"<img src=\"assets/original-vanillamilk.png\" width=\"250px\" height=\"250px\">",
-"<img src=\"assets/original-chocolate.png\" width=\"250px\" height=\"250px\">"];
- } else if (selectedBun.bunname == "Blackberry Bun"){
- 	var bunArray=["<img src=\"assets/blackberry.png\" width=\"250px\" height=\"250px\">", 
-"<img src=\"assets/original-sugarmilk.png\" width=\"250px\" height=\"250px\">",
-"<img src=\"assets/original-vanillamilk.png\" width=\"250px\" height=\"250px\">",
-"<img src=\"assets/original-chocolate.png\" width=\"250px\" height=\"250px\">"];
-} else if (selectedBun.bunname == "Walnut Bun"){
- 	var bunArray=["<img src=\"assets/browse-3.png\" width=\"250px\" height=\"250px\">", 
-"<img src=\"assets/original-sugarmilk.png\" width=\"250px\" height=\"250px\">",
-"<img src=\"assets/original-vanillamilk.png\" width=\"250px\" height=\"250px\">",
-"<img src=\"assets/original-chocolate.png\" width=\"250px\" height=\"250px\">"];
+var totalCart=JSON.parse(localStorage.getItem("totalcart"));
+console.log(totalCart);
+
+//creates div for elemen{t element in the cart
+var bunContent = "";
+var subtotal=0;
+var src="";
+
+for (i=0;i<totalCart.length; i++) {
+
+	if (totalCart[i].bunname == "Original Bun"){
+		var bunArray=["<img src=\"assets/original.png\" width=\"250px\" height=\"250px\">", 
+	"<img src=\"assets/original-sugarmilk.png\" width=\"250px\" height=\"250px\">",
+	"<img src=\"assets/original-vanillamilk.png\" width=\"250px\" height=\"250px\">",
+	"<img src=\"assets/original-chocolate.png\" width=\"250px\" height=\"250px\">"];
+	 } else if (totalCart[i].bunname == "Blackberry Bun"){
+	 	var bunArray=["<img src=\"assets/blackberry.png\" width=\"250px\" height=\"250px\">", 
+	"<img src=\"assets/original-sugarmilk.png\" width=\"250px\" height=\"250px\">",
+	"<img src=\"assets/original-vanillamilk.png\" width=\"250px\" height=\"250px\">",
+	"<img src=\"assets/original-chocolate.png\" width=\"250px\" height=\"250px\">"];
+	} else if (totalCart[i].bunname == "Walnut Bun"){
+	 	var bunArray=["<img src=\"assets/browse-3.png\" width=\"250px\" height=\"250px\">", 
+	"<img src=\"assets/original-sugarmilk.png\" width=\"250px\" height=\"250px\">",
+	"<img src=\"assets/original-vanillamilk.png\" width=\"250px\" height=\"250px\">",
+	"<img src=\"assets/original-chocolate.png\" width=\"250px\" height=\"250px\">"];
+	}
+	
+	var displayImage = document.getElementById("selectedBunImage");
+	if (totalCart[i].glaze == "Plain"){
+		src=bunArray[0];
+	}else if (totalCart[i].glaze == "Sugar-Milk"){
+		src=bunArray[1];
+	}else if (totalCart[i].glaze == "Vanilla-Milk"){
+		src=bunArray[2];
+	}else if (totalCart[i].glaze == "Double-Chocolate"){
+		src=bunArray[3];
+	}
+	
+	bunContent += 
+	'<div id="outBox-' + i + 
+		'"><div class="sub-flex">'+ 
+			'<div class="child-1" id="selectedBunImage">'+
+		src +'</div>'+
+
+			'<div class="child-2">'+
+				'<div class="samelineTitle">'+
+					'<div class="bun-name" id="cartBunName">'+ totalCart[i].bunname+'</div>'+
+					'<img id="removeBun-'+ i +'" class="deleteBun" alt="Cross to cancel selected bun" src="./assets/deleteitem.svg">'+
+				'</div>' + 
+				'<div class="elementSpace">'+
+					'<div class="select" >Glaze: </div>'+
+						'<div class= "insert1" id="insert-glaze">'+ totalCart[i].glaze + '</div>' +
+				'</div>'+
+				'<div class="elementSpace">'+
+					'<div class="select" >Price: </div>'+
+						'<div class= "insert1" id="insert-price">'+ totalCart[i].price+'</div>'+ 
+				'</div>'+
+				'<div class="elementSpace">'+
+					'<div class="select">Quantity: </div>'+
+					'<div class= "insert1" id="insert-qty">'+ totalCart[i].qty + '</div>'+ 
+				'</div>'+
+				'<div class="elementSpace">'+
+					'<div class="select">Packs: </div>'+
+					'<div class= "insert1" id="insert-packs">'+ totalCart[i].packs+ '</div>'+ 
+				'</div>'+
+			'</div>'+
+		'</div>'+
+
+	'</div><hr><br>';
+	
+	subtotal += (totalCart[i].qty * totalCart[i].price) ;
+
 }
-
-var displayImage = document.getElementById("selectedBunImage");
-if (selectedBun.glaze == "Plain"){
-	displayImage.innerHTML=bunArray[0];
-}else if (selectedBun.glaze == "Sugar-Milk"){
-	displayImage.innerHTML=bunArray[1];
-}else if (selectedBun.glaze == "Vanilla-Milk"){
-	displayImage.innerHTML=bunArray[2];
-}else if (selectedBun.glaze == "Double-Chocolate"){
-	displayImage.innerHTML=bunArray[3];
-}
-
-document.getElementById("cartBunName").innerHTML = selectedBun.bunname;
-
-document.getElementById("insert-price").innerHTML = "$ " + selectedBun.price.toFixed(2);
-
-document.getElementById("insert-glaze").innerHTML = selectedBun.glaze;
-
-document.getElementById("insert-qty").innerHTML = selectedBun.qty;
-
-document.getElementById("insert-packs").innerHTML = selectedBun.packs;
-
-var subtotal= selectedBun.qty * selectedBun.price;
+document.getElementById("bunCartDisplay").innerHTML = bunContent;
 document.getElementById("calculate-total").innerHTML = "$ "+subtotal.toFixed(2);
-
 var tax= subtotal * 0.075;
-
 document.getElementById("calculate-tax").innerHTML = "$ " + tax.toFixed(2);
-
 var grandTotal= subtotal + tax;
 document.getElementById("grand-total").innerHTML = "$ "+ grandTotal.toFixed(2);
 
 
-//save the selected bun into an array
+//for removing items from the cart
+for (i=0;i<totalCart.length; i++){
 
-var selectedBunArray=[selectedBun];
-var selectedBun=sessionStorage.getItem("bundetails");
-selectedBun=JSON.parse(selectedBun);
+	document.getElementById("removeBun-"+ i).addEventListener("click",function(ele) {
+		//debugger;
+		// Removes the element from the visual display
+		var id = ele.srcElement.id.split('-')[1];
+		var elem = document.getElementById("outBox-"+ id);
+		console.log('elem', elem);
+		document.getElementById("outBox-"+ ele.srcElement.id.split('-')[1]).remove();
 
-document.getElementById("removeBun").addEventListener("click",()=>{
-	//changing display cart and local storage counter
-	cartQuantity = cartQuantity-selectedBun.qty;
-	document.getElementById("incartQty").innerHTML=cartQuantity;
-	localStorage.setItem ("inCart",cartQuantity);
+		var totalCart = JSON.parse(localStorage.getItem("totalcart"));
 
-	selectedBun.image.src="";
-	selectedBun.description="";
-	selectedBun.bunname = "";
-	selectedBun.price = 0;
-	selectedBun.qty = 0;
-	selectedBun.rating = 0;
-	selectedBun.glaze = "";
-	selectedBun.packs = 0;
-	selectedBun.total= 0;
+		console.log(totalCart[id].qty);
+		var cartQuantity=localStorage.getItem ("inCart");
+
+
+		if (cartQuantity>0)
+			cartQuantity = cartQuantity-totalCart[id].qty;
+		else
+			cartQuantity = 0;
+
+		localStorage.setItem ("inCart", cartQuantity);
+		document.getElementById("incartQty").innerHTML=cartQuantity;	
+
+		if (totalCart.length>=0)
+			subtotal = subtotal - (totalCart[id].qty * totalCart[id].price) ;
+
+		document.getElementById("calculate-total").innerHTML = "$ "+subtotal.toFixed(2);
+		tax -= (subtotal * 0.075);
+		grandTotal -= (subtotal + tax);
+		document.getElementById("grand-total").innerHTML = "$ "+ grandTotal.toFixed(2);
 
 		
-	document.getElementById("selectedBunImage").innerHTML = "";
+		//console.log(totalCart);
 
-	document.getElementById("cartBunName").innerHTML = selectedBun.bunname;
+		totalCart.splice(id, 1);
 
-	document.getElementById("insert-price").innerHTML = "$ " + selectedBun.price.toFixed(2);
+		localStorage.setItem ("totalcart", JSON.stringify(totalCart));
 
-	document.getElementById("insert-glaze").innerHTML = selectedBun.glaze;
+		//string to number
 
-	document.getElementById("insert-qty").innerHTML = selectedBun.qty;
+		// if (i > -1)
+		// 	totalCart.splice(id, 1);
 
-	document.getElementById("insert-packs").innerHTML = selectedBun.packs;
+		// console.log("1"+totalCart);
 
-	var subtotal= selectedBun.qty * selectedBun.price;
-	document.getElementById("calculate-total").innerHTML = "$ "+subtotal.toFixed(2);
+		
+		localStorage.setItem ("totalcart", JSON.stringify(totalCart));
 
-	var tax= subtotal * 0.075;
-	document.getElementById("calculate-tax").innerHTML = "$ " + tax.toFixed(2);
+		
+	});
 
-	var grandTotal= subtotal + tax;
-	document.getElementById("grand-total").innerHTML = "$ "+ grandTotal.toFixed(2);
-
-	//sessionStorage.clear();
-	//sessionStorage.setItem("bundetails");
-
-	console.log(selectedBun);
-
-	var x = sessionStorage.setItem("bundetails",JSON.stringify(selectedBun));
-
-	console.log("I am Neha", x);
-	
-
-
-	
-});
+}
